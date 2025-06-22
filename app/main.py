@@ -13,6 +13,10 @@ def get_weather() -> None:
 
     url = f"{URL}key={api_key}&q={CITY}"
     response = requests.get(url)
+
+    if response.status_code != 200:
+        raise Exception(f"Failed to get data from API, status code: {response.status_code}")
+
     data = response.json()
 
     city = data["location"]["name"]
