@@ -15,7 +15,9 @@ def get_weather() -> None:
     response = requests.get(url)
 
     if response.status_code != 200:
-        raise Exception(f"Failed to get data from API, status code: {response.status_code}")
+        raise Exception(
+            f"Failed to get data from API, status code:"
+            f" {response.status_code}")
 
     data = response.json()
 
